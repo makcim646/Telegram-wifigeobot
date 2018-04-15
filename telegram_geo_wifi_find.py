@@ -4,7 +4,7 @@ from telebot import types
 from geo_search import geo_search
 
 
-bot = telebot.TeleBot('590072429:AAEjBUB5fzgp29oDsEcbhQYzvnJ6tHgNDrQ')
+bot = telebot.TeleBot('you token')
 
 locate = {}
 
