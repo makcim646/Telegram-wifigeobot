@@ -8,7 +8,7 @@ bot = telebot.TeleBot('you token')
 
 locate = {}
 
-@bot.message_handler(commands=["geo"])
+@bot.message_handler(commands=["geo"])              #вызов кастомной клавиатуры с запросом на отправку геолокации
 def geophone(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     button_geo = types.KeyboardButton(text="Отправить местоположение", request_location=True)
@@ -16,7 +16,7 @@ def geophone(message):
     bot.send_message(message.chat.id, "Отправь мне свое местоположение и я попробую найти пароли от wifi которые рядом с тобой", reply_markup=keyboard)
 
 
-@bot.message_handler(content_types=['location'])
+@bot.message_handler(content_types=['location'])    #обработка отправленной локации
 def locate(message):
     loc = message.location
     lon1 = round(float(loc.longitude - 0.0008), 5)
