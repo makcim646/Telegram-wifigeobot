@@ -19,10 +19,10 @@ def geophone(message):
 @bot.message_handler(content_types=['location'])
 def locate(message):
     loc = message.location
-    lon2 = round(float(loc.longitude), 5)
-    lan2 = round(float(loc.latitude), 5)
-    lon1 = round(float(lon2 - 0.001), 5)
-    lan1 = round(float(lan2 - 0.001), 5)
+    lon1 = round(float(loc.longitude - 0.0008), 5)
+    lan1 = round(float(loc.latitude - 0.0008), 5)
+    lon2 = round(float(loc.longitude + 0.0008), 5)
+    lan2 = round(float(loc.latitude + 0.0008), 5)
     bot.send_message(message.chat.id, 'Подождите немного')
     
     mesg = geo_search(lan1,lan2,lon1,lon2)
